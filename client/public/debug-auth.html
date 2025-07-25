@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Debug Authentication</title>
+</head>
+<body>
+    <h1>Authentication Debug</h1>
+    <div id="results"></div>
+    
+    <script>
+        async function debugAuth() {
+            const results = document.getElementById('results');
+            
+            // Test 1: Check if we can reach the server root
+            try {
+                const response = await fetch('http://localhost:5000/', {
+                    method: 'GET',
+                });
+                results.innerHTML += `<p style="color: green;">✓ Server reachable: ${response.status}</p>`;
+            } catch (error) {
+                results.innerHTML += `<p style="color: red;">✗ Server not reachable: ${error.message}</p>`;
+            }
+            
+            // Test 2: Try a simple auth request
+            try {
+                const response = await fetch('http://localhost:5000/api/auth', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        email: 'test@example.com',
+                        password: 'test123456'
+                    })
+                });
+                
+                const data = await response.json();
+                results.innerHTML += `<p style="color: green;">✓ Auth endpoint response: ${response.status}</p>`;
+                results.innerHTML += `<p>Token received: ${data.token ? 'Yes' : 'No'}</p>`;
+                
+            } catch (error) {
+                results.innerHTML += `<p style="color: red;">✗ Auth endpoint failed: ${error.message}</p>`;
+            }
+            
+            // Test 3: Check browser console for CORS errors
+            console.log('=== AUTHENTICATION DEBUG ===');
+            console.log('If you see CORS errors above, the server needs CORS configuration');
+            console.log('Current client URL:', window.location.origin);
+            console.log('API base URL should be: http://localhost:5000');
+        }
+        
+        // Run debug on page load
+        debugAuth();
+    </script>
+</body>
+</html>

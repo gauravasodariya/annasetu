@@ -1,0 +1,119 @@
+/* Donation Management Styles */
+.donation-management-card {
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.donation-card-header {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+  padding: 15px 20px;
+}
+
+.search-input {
+  border-radius: 20px;
+  padding-left: 15px;
+  border: 1px solid #ced4da;
+  transition: all 0.3s;
+}
+
+.search-input:focus {
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.15);
+  border-color: #86b7fe;
+}
+
+.donation-table {
+  margin-top: 10px;
+}
+
+.table-header {
+  background-color: #f8f9fa;
+}
+
+.table-header th {
+  font-weight: 600;
+  color: #495057;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.donation-row {
+  transition: background-color 0.2s;
+}
+
+.donation-row:hover {
+  background-color: #f8f9fa;
+}
+
+.status-badge {
+  font-size: 0.85rem;
+  padding: 5px 10px;
+  border-radius: 20px;
+}
+
+
+/* Add these styles to your existing AdminStyles.css file */
+
+/* Donation detail image styles */
+.donation-detail-image {
+  max-width: 100%;
+  max-height: 400px;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Image loading placeholder */
+.image-loading {
+  width: 100%;
+  height: 200px;
+  background-color: #f8f9fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  color: #6c757d;
+}
+
+/* Image thumbnail styles */
+.donation-image-thumbnail {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 1px solid #dee2e6;
+  transition: transform 0.2s;
+}
+
+.donation-image-thumbnail:hover {
+  transform: scale(1.1);
+}
+
+.image-preview-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+/* Modal image styles */
+.modal-image {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+}
+
+/* No image placeholder */
+.no-image-placeholder {
+  width: 50px;
+  height: 50px;
+  background-color: #f8f9fa;
+  border: 1px dashed #ced4da;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #6c757d;
+  font-size: 12px;
+}

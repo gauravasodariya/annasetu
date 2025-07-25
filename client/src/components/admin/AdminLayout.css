@@ -1,0 +1,279 @@
+.admin-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #F3F4F6;
+}
+
+.admin-sidebar {
+  width: 250px;
+  background: linear-gradient(180deg, #1F2937 0%, #111827 100%);
+  color: #fff;
+  padding: 20px 0;
+  box-shadow: 2px 0 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  height: 780px;
+}
+
+.sidebar-header {
+  padding: 0 20px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 20px;
+}
+
+.sidebar-header h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: -0.5px;
+}
+
+.sidebar-header p {
+  margin: 5px 0 0;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-nav li {
+  margin-bottom: 0;
+}
+
+.sidebar-nav li a {
+  display: flex;
+  align-items: center;
+  padding: 14px 20px;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border-left: 3px solid transparent;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.sidebar-nav li a:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #FFFFFF;
+}
+
+.sidebar-nav li.active a {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: #10B981;
+  border-left-color: #10B981;
+}
+
+.sidebar-nav li a svg {
+  margin-right: 10px;
+  font-size: 1.2rem;
+}
+
+.admin-content {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+  background-color: #F3F4F6;
+}
+
+/* Status badges */
+.status-pending {
+  background-color: #FECACA;
+  color: #991B1B;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 6px;
+  display: inline-block;
+  font-size: 12px;
+}
+
+.status-assigned {
+  background-color: #D1FAE5;
+  color: #065F46;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 6px;
+  display: inline-block;
+  font-size: 12px;
+}
+
+.status-rejected {
+  background-color: #FEE2E2;
+  color: #7F1D1D;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 6px;
+  display: inline-block;
+  font-size: 12px;
+}
+
+.status-completed {
+  background-color: #DBEAFE;
+  color: #0C2340;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 6px;
+  display: inline-block;
+  font-size: 12px;
+}
+
+/* Tables */
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.admin-table th {
+  background-color: #1F2937;
+  padding: 14px 15px;
+  text-align: left;
+  font-weight: 600;
+  color: #FFFFFF;
+  font-size: 13px;
+  letter-spacing: 0.3px;
+}
+
+.admin-table td {
+  padding: 14px 15px;
+  border-bottom: 1px solid #E5E7EB;
+  color: #374151;
+  font-size: 14px;
+}
+
+.admin-table tr:last-child td {
+  border-bottom: none;
+}
+
+.admin-table tbody tr:hover {
+  background-color: #F9FAFB;
+}
+
+/* Action buttons */
+.action-link {
+  color: #10B981;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.action-link:hover {
+  color: #059669;
+  background-color: rgba(16, 185, 129, 0.1);
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+  gap: 8px;
+}
+
+.pagination button {
+  background-color: #FFFFFF;
+  border: 1px solid #D1D5DB;
+  color: #374151;
+  padding: 10px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  font-size: 14px;
+}
+
+.pagination button.active {
+  background-color: #10B981;
+  color: #FFFFFF;
+  border-color: #10B981;
+}
+
+.pagination button:hover:not(.active) {
+  background-color: #F3F4F6;
+  border-color: #10B981;
+}
+
+
+/* Add these styles to the existing CSS file */
+
+/* Sidebar toggle button */
+.toggle-sidebar {
+  background: none;
+  border: none;
+  color: #10B981;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 5px;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+}
+
+.toggle-sidebar:hover {
+  color: #FFFFFF;
+}
+
+/* Collapsed sidebar styles */
+.admin-sidebar.collapsed {
+  width: 60px;
+}
+
+.admin-sidebar.collapsed .sidebar-header {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.admin-sidebar.collapsed .sidebar-nav li a {
+  padding: 12px;
+  justify-content: center;
+}
+
+.admin-sidebar.collapsed .sidebar-nav li a svg {
+  margin-right: 0;
+}
+
+.sidebar-collapsed .admin-content {
+  margin-left: 60px;
+}
+
+/* Make the sidebar header a flex container */
+.sidebar-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Adjust the container for collapsed sidebar */
+.sidebar-collapsed .admin-sidebar {
+  width: 60px;
+}
+
+/* Ensure the admin-content takes the full available height */
+.admin-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  min-height: 100vh;
+}
+
+/* Ensure the Outlet content takes the available space */
+.admin-content > * {
+  flex: 1;
+}

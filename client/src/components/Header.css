@@ -1,0 +1,364 @@
+/* Add these styles at the top of your existing CSS file */
+.navbar-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1030;
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+/* Adjust body padding to prevent content from hiding behind fixed navbar */
+body {
+  padding-top: 56px; /* Adjust this value based on your navbar height */
+}
+
+.nav-link-custom {
+  position: relative;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  padding: 8px 16px !important;
+  transition: color 0.3s ease;
+  color: #333 !important; /* Changed to dark color */
+}
+
+.nav-link-custom:hover {
+  color: #000 !important; /* Changed to black */
+}
+
+.active-link {
+  color: #000 !important; /* Changed to black */
+}
+
+.active-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 16px;
+  right: 16px;
+  height: 3px;
+  background-color: rgb(49, 192, 227); /* Kept the same accent color */
+  transform: scaleX(1);
+  transition: transform 0.3s ease;
+}
+
+.nav-link-custom:not(.active-link)::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 16px;
+  right: 16px;
+  height: 3px;
+  background-color:rgb(49, 192, 227);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.nav-link-custom:hover::after {
+  transform: scaleX(1);
+}
+
+/* Auth links styling */
+.auth-link {
+  min-width: 90px;
+  text-align: center;
+  margin-left: 5px;
+  border-radius: 4px;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+  background-color: transparent;
+}
+
+.auth-link:hover,
+.auth-link:focus,
+.auth-link:active {
+  background-color: transparent;
+  box-shadow: none;
+  outline: none;
+  text-decoration: underline;
+}
+
+.auth-link.active-link::after {
+  background-color: #160c0c;
+}
+
+/* Add these styles to your existing Header.css file */
+
+.nav-dropdown-custom .dropdown-toggle::after {
+  color: rgba(255, 255, 255, 0.55);
+  transition: color 0.3s ease;
+}
+
+.nav-dropdown-custom:hover .dropdown-toggle::after {
+  color: #fff;
+}
+
+.nav-dropdown-custom .dropdown-menu {
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border: none;
+  padding: 8px 0;
+  margin-top: 10px;
+}
+
+.nav-dropdown-custom .dropdown-item {
+  padding: 8px 20px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.nav-dropdown-custom .dropdown-item:hover {
+  background: linear-gradient(90deg, rgba(56, 249, 215, 0.1) 0%, rgba(67, 233, 123, 0.1) 100%);
+  color: #43e97b;
+}
+
+.nav-dropdown-custom .dropdown-divider {
+  margin: 5px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+
+/* Add these styles at the end of your existing CSS file */
+
+.selected-foods-dropdown .dropdown-menu {
+  min-width: 250px;
+}
+
+.selected-foods-dropdown .dropdown-header {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.selected-foods-badge {
+  position: relative;
+  top: -8px;
+  right: -5px;
+  padding: 3px 6px;
+  font-size: 0.6rem;
+}
+
+
+/* Food Cart Dropdown Styles */
+.food-cart-dropdown .dropdown-toggle {
+  display: flex;
+  align-items: center;
+}
+
+.food-cart-badge {
+  font-size: 0.7rem;
+  padding: 0.25em 0.5em;
+  margin-left: 5px;
+}
+
+.food-cart-dropdown .dropdown-menu {
+  min-width: 280px;
+  padding: 10px 0;
+}
+
+.food-cart-dropdown .dropdown-header {
+  font-weight: 600;
+  color: #2c3e50;
+  padding: 8px 16px;
+}
+
+.food-cart-item {
+  padding: 8px 16px;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.food-cart-item:last-child {
+  border-bottom: none;
+}
+
+.request-all-btn, .clear-cart-btn {
+  text-align: left;
+  background: none;
+  border: none;
+  width: 100%;
+  padding: 8px 16px;
+}
+
+.request-all-btn:hover {
+  background-color: rgba(40, 167, 69, 0.1);
+  color: #28a745;
+}
+
+.clear-cart-btn:hover {
+  background-color: rgba(220, 53, 69, 0.1);
+  color: #dc3545;
+}
+
+
+/* Update dropdown toggle color */
+.nav-dropdown-custom .dropdown-toggle::after {
+  color: #333; /* Changed to dark color */
+  transition: color 0.3s ease;
+}
+
+.nav-dropdown-custom:hover .dropdown-toggle::after {
+  color: #000; /* Changed to black */
+}
+
+.nav-dropdown-custom .dropdown-menu {
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border: none;
+  padding: 8px 0;
+  margin-top: 10px;
+}
+
+.nav-dropdown-custom .dropdown-item {
+  padding: 8px 20px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.nav-dropdown-custom .dropdown-item:hover {
+  background: linear-gradient(90deg, rgba(56, 249, 215, 0.1) 0%, rgba(67, 233, 123, 0.1) 100%);
+  color: #25c5e1;
+}
+
+.nav-dropdown-custom .dropdown-divider {
+  margin: 5px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+
+/* Add these styles at the end of your existing CSS file */
+
+.selected-foods-dropdown .dropdown-menu {
+  min-width: 250px;
+}
+
+.selected-foods-dropdown .dropdown-header {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.selected-foods-badge {
+  position: relative;
+  top: -8px;
+  right: -5px;
+  padding: 3px 6px;
+  font-size: 0.6rem;
+}
+
+
+/* Food Cart Dropdown Styles */
+.food-cart-dropdown .dropdown-toggle {
+  display: flex;
+  align-items: center;
+}
+
+.food-cart-badge {
+  font-size: 0.7rem;
+  padding: 0.25em 0.5em;
+  margin-left: 5px;
+}
+
+.food-cart-dropdown .dropdown-menu {
+  min-width: 280px;
+  padding: 10px 0;
+}
+
+.food-cart-dropdown .dropdown-header {
+  font-weight: 600;
+  color: #2c3e50;
+  padding: 8px 16px;
+}
+
+.food-cart-item {
+  padding: 8px 16px;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.food-cart-item:last-child {
+  border-bottom: none;
+}
+
+.request-all-btn, .clear-cart-btn {
+  text-align: left;
+  background: none;
+  border: none;
+  width: 100%;
+  padding: 8px 16px;
+}
+
+.request-all-btn:hover {
+  background-color: rgba(40, 167, 69, 0.1);
+  color: #28a745;
+}
+
+.clear-cart-btn:hover {
+  background-color: rgba(220, 53, 69, 0.1);
+  color: #dc3545;
+}
+
+
+/* Add this new class for the white navbar */
+.navbar-white {
+  background-color: #fff !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Add this for the brand in white navbar */
+.navbar-white .navbar-brand {
+  color: #333 !important;
+  font-weight: bold;
+}
+
+/* Add this for toggler in white navbar */
+.navbar-white .navbar-toggler {
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.navbar-white .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.5%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+
+/* Add this to your Header.css file for the logo */
+/* Update the logo styles to make it circular */
+.annasetu-logo {
+  height: 45px;
+  width: 45px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #dbe972;
+  padding: 2px;
+  background-color: white;
+}
+
+/* Decrease the navbar height */
+.navbar-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1030;
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  min-height: 60px; /* Decreased from 70px */
+}
+
+/* Adjust body padding to match the new navbar height */
+body {
+  padding-top: 60px; /* Updated to match navbar height */
+}
+
+/* Make nav links more compact */
+.nav-link-custom {
+  padding: 6px 14px !important; /* Reduced padding */
+}
+
+.nav-link-larger {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* You might also want to adjust the active link style */
+.active-link.nav-link-larger {
+  font-weight: 600;
+}
