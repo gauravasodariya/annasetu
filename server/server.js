@@ -29,6 +29,6 @@ app.use("/api/volunteers", require("./routes/api/volunteers"));
 app.use("/api/contact", require("./routes/api/contact"));
 app.use("/api/stats", require("./routes/api/stats"));
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
