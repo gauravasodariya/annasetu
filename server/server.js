@@ -22,7 +22,6 @@ app.use("/api/auth", require("./routes/api/auth"));
 app.use("/api/admin", require("./routes/api/admin"));
 app.use("/api/ngos", require("./routes/api/ngos"));
 app.use("/api/donations", require("./routes/api/donations"));
-app.use("/api/notifications", require("./routes/api/notifications"));
 app.use("/api/requests", require("./routes/api/requests"));
 app.use("/api/agents", require("./routes/api/agents"));
 app.use("/api/uploads", require("./routes/api/uploads"));
