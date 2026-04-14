@@ -9,11 +9,11 @@ const app = express();
 connectDB();
 
 app.use(express.json({ extended: false }));
-app.use(cors());
+app.use(cors({
+  origin: process.env.CLIENT_URL,
+  credentials: true
+}));
 
-// Request logging removed per cleanup request
-
-// Serve uploaded files from the correct server/uploads directory
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use("/images", express.static(path.join(__dirname, "uploads")));
 
