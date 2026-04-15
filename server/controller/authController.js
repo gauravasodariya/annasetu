@@ -38,7 +38,7 @@ async function login(req, res) {
       (err, token) => {
         if (err) throw err;
         res.json({ token });
-      }
+      },
     );
   } catch (err) {
     console.error(err.message);
@@ -93,7 +93,7 @@ async function googleLogin(req, res) {
       (err, token) => {
         if (err) throw err;
         res.json({ token });
-      }
+      },
     );
   } catch (err) {
     console.error(err.message);
@@ -109,7 +109,7 @@ function passwordResetTemplate({ appName, resetUrl, expireMinutes = 10 }) {
       <p>You requested a password reset for your AnnaSetu account.</p>
       <p>Please click the link below to reset your password:</p>
       <a href="${resetUrl}" style="display: inline-block; padding: 10px 20px; background-color: #4dd0e1; color: white; text-decoration: none; border-radius: 5px;">Reset Password</a>
-      <p>This link will expire in 10 minutes.</p>`
+      <p>This link will expire in 10 minutes.</p>`;
 }
 
 async function forgotPassword(req, res) {
@@ -141,6 +141,7 @@ async function forgotPassword(req, res) {
       const transporter = nodemailer.createTransport({
         host: process.env.EMAIL_HOST,
         port: process.env.EMAIL_PORT,
+        secure: false,
         auth: {
           user: process.env.EMAIL_USER,
           pass: process.env.EMAIL_PASSWORD,
@@ -164,13 +165,16 @@ async function forgotPassword(req, res) {
 
       res.status(200).json({ success: true, data: "Email sent" });
     } catch (err) {
-      console.log(err);
+      console.error("Email sending error:", err.message);
+      console.error("Full error:", err);
       user.resetPasswordToken = undefined;
       user.resetPasswordExpire = undefined;
 
       await user.save();
 
-      return res.status(500).json({ msg: "Email could not be sent" });
+      return res
+        .status(500)
+        .json({ msg: "Email could not be sent", error: err.message });
     }
   } catch (err) {
     console.error(err.message);
