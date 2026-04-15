@@ -140,8 +140,11 @@ async function forgotPassword(req, res) {
     try {
       const transporter = nodemailer.createTransport({
         host: process.env.EMAIL_HOST,
-        port: process.env.EMAIL_PORT,
-        secure: false,
+        port: process.env.EMAIL_PORT || 465,
+        secure:
+          process.env.EMAIL_PORT === "465" || process.env.EMAIL_PORT === 465
+            ? true
+            : false,
         auth: {
           user: process.env.EMAIL_USER,
           pass: process.env.EMAIL_PASSWORD,
@@ -166,6 +169,8 @@ async function forgotPassword(req, res) {
       res.status(200).json({ success: true, data: "Email sent" });
     } catch (err) {
       console.error("Email sending error:", err.message);
+      console.error("SMTP code:", err.code);
+      console.error("SMTP response:", err.response);
       console.error("Full error:", err);
       user.resetPasswordToken = undefined;
       user.resetPasswordExpire = undefined;
