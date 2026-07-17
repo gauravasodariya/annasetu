@@ -8,7 +8,6 @@ import {
   useLocation,
 } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Spinner } from "react-bootstrap";
 import { LazyMotion, domAnimation } from "framer-motion";
 import AuthContext, { AuthProvider } from "./context/authContext";
 import setAuthToken from "./utils/setAuthToken";
@@ -58,6 +57,21 @@ axios.defaults.baseURL =
 if (localStorage.token) {
   setAuthToken(localStorage.token);
 }
+
+// Simple centered "Loading..." state (inline style, since this project uses
+// Bootstrap not Tailwind — flex/items-center/h-screen classes alone won't center it)
+const FullPageSpinner = () => (
+  <div
+    style={{
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      height: "100vh",
+    }}
+  >
+    Loading...
+  </div>
+);
 
 const AdminRoute = () => {
   const authContext = React.useContext(AuthContext);
@@ -113,11 +127,7 @@ const AppContent = () => {
     location.pathname.startsWith("/reset-password");
 
   if (loading) {
-     return (
-      <div className="flex items-center justify-center h-screen">
-        Loading...
-      </div>
-    );
+    return <FullPageSpinner />;
   }
   return (
     <div className="d-flex flex-column min-vh-100">
