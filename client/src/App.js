@@ -59,12 +59,24 @@ if (localStorage.token) {
   setAuthToken(localStorage.token);
 }
 
+// Reusable full-page spinner shown during any auth-loading state
+const FullPageSpinner = () => (
+  <div
+    className="d-flex justify-content-center align-items-center"
+    style={{ minHeight: "100vh" }}
+  >
+    <Spinner animation="border" role="status" variant="primary">
+      <span className="visually-hidden">Loading...</span>
+    </Spinner>
+  </div>
+);
+
 const AdminRoute = () => {
   const authContext = React.useContext(AuthContext);
   const { user, loading, isAuthenticated } = authContext || {};
 
   if (loading) {
-    return null; // Don't show spinner while loading
+    return <FullPageSpinner />;
   }
 
   if (!isAuthenticated || user?.role !== "admin") {
@@ -79,7 +91,7 @@ const PrivateRoute = ({ children }) => {
   const { isAuthenticated, loading } = authContext || {};
 
   if (loading) {
-    return null; // Don't show spinner while loading
+    return <FullPageSpinner />;
   }
 
   return isAuthenticated ? children : <Navigate to="/login" />;
@@ -113,7 +125,7 @@ const AppContent = () => {
     location.pathname.startsWith("/reset-password");
 
   if (loading) {
-    return null; // Don't show anything while loading auth state
+    return <FullPageSpinner />;
   }
   return (
     <div className="d-flex flex-column min-vh-100">
